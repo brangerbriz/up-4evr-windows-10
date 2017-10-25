@@ -63,6 +63,8 @@ For more detailed instructions, or if that didn't work, see [this tutorial](http
 
 **Note**: Disabling updates can make your computer vulnerable to malware and other security vulnerabilities, especially if it is connected to a network. Do so at your own risk.
 
+**Note**: Make sure Windows and all hardware drivers are up to date before following the steps below. 
+
 In Windows 10, users have almost no control over updates. You can choose only how updates are installed, but you cannot turn off or disable Windows updates via the Control Panel or Settings apps. You can, however, disable the service that manages the checking and downloading of updates.
 
 Open the *Services* application (type "Services" into the Cortana search bar). Select the *Windows Update* service, right-click it, and select *properties*. Change *Startup type* to "Disabled". Click *Apply* and restart for the changes to take effect.
