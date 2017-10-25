@@ -4,13 +4,14 @@ This document is inspired by Blair Neal's (@laserpilot) [*Installation up 4evr*]
 
 1. ~~Create auto launch/relaunch scripts~~ (coming soon)
 2. ~~Make these scripts run at startup~~ (coming soon)
-3. Set the time to the correct timezone for the installation location
-4. Configure auto login
-5. Disable screen lock and snooze
-6. Disable automatic software updates
-7. Disable notifications
-8. Install TeamViewer for remote monitoring and access
-9. Protect your personal privacy
+3. Configure Task Scheduler to reboot the machine daily
+4. Set the time to the correct timezone for the installation location
+5. Configure auto login
+6. Disable screen lock and snooze
+7. Disable automatic software updates
+8. Disable notifications
+9. Install TeamViewer for remote monitoring and access
+10. Protect your personal privacy
 
 Several of these actions require you to open the *Windows Settings* application. To do this, click the Windows icon on the bottom left of the screen, and then select *Settings* (the cog icon).
 
@@ -22,7 +23,23 @@ Coming soon!
 
 Coming soon!
 
-## 3. Set the correct time
+## 3. Configure Task Scheduler to reboot the machine daily
+
+**Note**: This is not a necessary task, but can be helpful if you are worried about memory leaks or undefined behavior if your machine runs for long periods of time (days, months, years...) without rebooting.
+
+Open Notepad and save the following contents as a Batch file named `reboot.bat`.
+
+```
+shutdown.exe /r /t 00 /f
+```
+
+When run, this script will immediately force reboot the machine. Next, configure it to run once per day using "Task Scheduler".
+
+*Task Scheduler > Create Basic Task*
+
+Enter a name and description, like "Reboot", "Reboot the machine daily." Click *Next* and select *Daily*. Click *Next* and select the time you would like the machine to be rebooted. Click *Next* and select "Start a program" when prompted for what kind of action you want the task to perform. Click *Next* and then click *Browse* at the program/script input field. Select your `reboot.bat` script in the file browser and click *Open*. Click *Next* and finish creating your scheduled task.
+
+## 4. Set the correct time
 
 *Windows Settings > Time & Language > Time zone*
 
