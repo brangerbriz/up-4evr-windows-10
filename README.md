@@ -3,7 +3,7 @@
 This document is inspired by Blair Neal's (@laserpilot) [*Installation up 4evr*](https://github.com/laserpilot/Installation_Up_4evr) guide.
 
 1. Auto launch an application at system start up
-2. ~~Auto relaunch an application on crash~~ (coming soon)
+2. Auto relaunch an application on crash
 3. Configure Task Scheduler to reboot the machine daily
 4. Set the time to the correct timezone for the installation location
 5. Configure auto login
@@ -25,9 +25,11 @@ Open the *Task Scheduler* using the Cortana spotlight search. From there, select
 
 Enter a name and description, like "Launch installation.exe", "Launch installation.exe at startup". Here you are prompted to answer the question, "When do you want the task to start?". If the application is graphical, it is highly recommended that you select "When I log on" (make sure to also complete step \#5 to configure auto login). You may instead select "When the computer starts", however, it is likely that some services that your application may rely on will not yet be available at that time, so the former option is recommended. Click *Next* and select "Start a program" when prompted for what kind of action you want the task to perform. Click *Next* and then click *Browse* at the program/script input field. Select `installation.exe` in the file browser and click *Open*. Click *Next* and finish creating your scheduled task.
 
-## ~~2. Auto relaunch an application on crash~~
+## 2. Auto relaunch an application on crash
 
-Coming soon!
+[RestartOnCrash](http://www.softpedia.com/get/System/File-Management/Restart-on-Crash.shtml) is a wonderful freeware utility program to manage the upkeep of Windows applications. It allows you to monitor applications and relaunch them if the crash or quit running. Download the program and run it. Select *Add* and click *Select a file*. Use the file browser to select `installation.exe`. On the same window, check "It isn't running" in the "Assume it has crashed or hanged when..." section. Click *OK* to finish.
+
+To open *Restart On Crash* at system boot, click the *Settings* menu item on the main application window and check "Run RoC when Windows starts". If you configure Windows to auto login (instructions below), this will cause your application to launch on boot. Combined with the instructions above, it will insure that `installation.exe` runs on boot re-launches on crash.
 
 ## 3. Configure Task Scheduler to reboot the machine daily
 
