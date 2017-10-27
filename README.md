@@ -10,8 +10,9 @@ This document is inspired by Blair Neal's (@laserpilot) [*Installation up 4evr*]
 6. Disable screen lock and snooze
 7. Disable automatic software updates
 8. Disable notifications
-9. Install TeamViewer for remote monitoring and access
-10. Protect your personal privacy
+9. Disable edge swipes (touchscreen only)
+10. Install TeamViewer for remote monitoring and access
+11. Protect your personal privacy
 
 Several of these actions require you to open the *Windows Settings* application. To do this, click the Windows icon on the bottom left of the screen, and then select *Settings* (the cog icon).
 
@@ -29,7 +30,7 @@ Enter a name and description, like "Launch installation.exe", "Launch installati
 
 [RestartOnCrash](http://www.softpedia.com/get/System/File-Management/Restart-on-Crash.shtml) is a wonderful freeware utility program to manage the upkeep of Windows applications. It allows you to monitor applications and relaunch them if they crash or quit running. Download the program and run it. Select *Add* and click *Select a file*. Use the file browser to select `installation.exe`. On the same window, check "It isn't running" in the "Assume it has crashed or hanged when..." section. Click *OK* to finish.
 
-To open *Restart On Crash* at system boot, click the *Settings* menu item on the Restart on Crash window and check "Run RoC when Windows starts". If you configure Windows to auto login (instructions below), this should cause your application to launch on boot. I have, however noticed that enabling "Run RoC when Windows starts" doesn't always work. For a surefire approach to launch RoC on boot, create a task that runs on user login using the Task Scheduler, described in \#1. 
+To open *Restart On Crash* at system boot, click the *Settings* menu item on the Restart on Crash window and check "Run RoC when Windows starts". If you configure Windows to auto login (instructions below), this should cause your application to launch on boot. I have, however noticed that enabling "Run RoC when Windows starts" doesn't always work. For a surefire approach to launch RoC on boot, create a task that runs on user login using the Task Scheduler, described in \#1.
 
 ## 3. Configure Task Scheduler to reboot the machine daily
 
@@ -89,13 +90,27 @@ Turn off:
 - Show me the Windows welcome experience after updates...
 - Get tips, tricks, and suggestions as you use Windows
 
-## 9. Install TeamViewer for remote monitoring and access
+## 9. Disable edge swipes (touchscreen only)
+
+Windows 10 supports a variety of touch swipe gestures by default. If your installation requires use of a touchscreen it is recommended to disable these features so that users can't accidentally exit your application. To disable edge swipes, open the *Registry Editor* by pressing the Windows key + r, type "regedit", and press *Enter*.
+
+Edit the registry key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EdgeUI
+```
+
+If you don't have such a key, create it. Create a new value for this key named "AllowEdgeSwipe" with value data `0`. Reboot for the changes to take effect.
+
+For further instructions see [this tutorial](https://winaero.com/blog/how-to-disable-touchscreen-edge-swipes-in-windows-10/). 
+
+## 10. Install TeamViewer for remote monitoring and access
 
 Download and install TeamViewer for Windows. When setting up TeamViewer for the first time, select "Installation to access this computer remotely" when prompted with "How do you want to proceed." If you miss this, you can always grant remote access by selecting *Easy Access* on the main TeamViewer window.
 
  **Note**: Add the machine to your contacts list but **do not** stay signed in (otherwise anyone with access to the machine can login to all of your computers).
 
-## 10. Protect your personal privacy
+## 11. Protect your personal privacy
 
 ### Windows privacy settings
 
