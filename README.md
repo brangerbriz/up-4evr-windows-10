@@ -27,9 +27,9 @@ Enter a name and description, like "Launch installation.exe", "Launch installati
 
 ## 2. Auto relaunch an application on crash
 
-[RestartOnCrash](http://www.softpedia.com/get/System/File-Management/Restart-on-Crash.shtml) is a wonderful freeware utility program to manage the upkeep of Windows applications. It allows you to monitor applications and relaunch them if the crash or quit running. Download the program and run it. Select *Add* and click *Select a file*. Use the file browser to select `installation.exe`. On the same window, check "It isn't running" in the "Assume it has crashed or hanged when..." section. Click *OK* to finish.
+[RestartOnCrash](http://www.softpedia.com/get/System/File-Management/Restart-on-Crash.shtml) is a wonderful freeware utility program to manage the upkeep of Windows applications. It allows you to monitor applications and relaunch them if they crash or quit running. Download the program and run it. Select *Add* and click *Select a file*. Use the file browser to select `installation.exe`. On the same window, check "It isn't running" in the "Assume it has crashed or hanged when..." section. Click *OK* to finish.
 
-To open *Restart On Crash* at system boot, click the *Settings* menu item on the main application window and check "Run RoC when Windows starts". If you configure Windows to auto login (instructions below), this will cause your application to launch on boot. Combined with the instructions above, it will insure that `installation.exe` runs on boot re-launches on crash.
+To open *Restart On Crash* at system boot, click the *Settings* menu item on the Restart on Crash window and check "Run RoC when Windows starts". If you configure Windows to auto login (instructions below), this should cause your application to launch on boot. I have, however noticed that enabling "Run RoC when Windows starts" doesn't always work. For a surefire approach to launch RoC on boot, create a task that runs on user login using the Task Scheduler, described in \#1. 
 
 ## 3. Configure Task Scheduler to reboot the machine daily
 
