@@ -79,6 +79,18 @@ In Windows 10, users have almost no control over updates. You can choose only ho
 
 Open the *Services* application (type "Services" into the Cortana search bar). Select the *Windows Update* service, right-click it, and select *properties*. Change *Startup type* to "Disabled". Click *Apply* and restart for the changes to take effect.
 
+In recent versions of Windows 10 Microsoft has also added a new watchdog serivce that ensures that Windows Update is enabled after a period of time even if an admin has disabled the serivce. You'll notice in the services window that this service is named "Windows Update Medic Service" and is located directly below the Windows Update service. This process has been protected so if you try to set this to disabled you'll get an 'access denied' notification. To get around this issue we'll use RegEdit to set the value of the Windows Update Medic Service to 'disabled'
+
+Warning!!! Improperly editing settings in RegEdit can corrupt your installation of Windows and cause data loss. Be careful entering values into RegEdit and do not edit the value of any registry if you don't know what you're doing.
+
+Open the "RegEdit" in the search bar (you must either be logged in as an admin or select 'open as administrator')
+
+Navigate to the following path HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc.
+
+Double click on the value named "Start" and set the value to 4
+
+Close RegEdit and repopen the Services app. You can now navigate to the Windows Update Medic Service and see that it has been disabled.
+
 For alternative methods of disabling Windows 10 updates, see [this tutorial](http://www.intowindows.com/how-to-disable-windows-update-in-windows-10/).
 
 ## 8. Disable notifications
